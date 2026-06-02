@@ -1,12 +1,13 @@
-:root{
---color-bg: #080C08;
---color-bg-secondary: #0A0F0A;
---color-bg-card: #111E11;
---color-accent: #22C55E;
---color-text-secondary: #2D5A2D;
---color-negative: #EF4444;
---color-info: #3B82F6;
---color-text: #fafafa;
+:root {
+    --color-bg: #080C08;
+    --color-bg-secondary: #0A0F0A;
+    --color-bg-card: #111E11;
+    --color-bg-active: #2D5A2D;
+    --color-accent: #22C55E;
+    --color-negative: #EF4444;
+    --color-info: #3B82F6;
+    --color-text: #fafafa;
+    --color-text-muted: #6B7280;
 }
 
 *,
