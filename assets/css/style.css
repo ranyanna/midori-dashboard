@@ -1,0 +1,25 @@
+:root{
+--color-bg: #080C08;
+--color-bg-secondary: #0A0F0A;
+--color-bg-card: #111E11;
+--color-accent: #22C55E;
+--color-text-secondary: #2D5A2D;
+--color-negative: #EF4444;
+--color-info: #3B82F6;
+--color-text: #fafafa;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
