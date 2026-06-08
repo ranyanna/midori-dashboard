@@ -19,3 +19,9 @@ function addTransaction(description, amount, type, category, date) {
     })
     saveTransactions(transactions)
 }
+
+function deleteTransaction(id) {
+    const transactions = getTransactions()
+    const updatedTransactions = transactions.filter(transaction => transaction.id !== id)
+    saveTransactions(updatedTransactions)
+}
