@@ -48,3 +48,7 @@ function getTotalExpenses() {
     }, 0)
     return total
 }
+
+function getBalance() {
+    return getTotalIncome() - getTotalExpenses()
+}
