@@ -64,6 +64,9 @@ function getBalance() {
 }
 
 function getSavingsPercentage() {
+    if (getTotalIncome() === 0) {
+        return 0
+    }
     return (getTotalIncome() - getTotalExpenses()) / getTotalIncome() * 100
 }
 
@@ -71,7 +74,7 @@ function updateDashboard() {
     balanceAmount.textContent = formatter.format(getBalance())
     incomeAmount.textContent = formatter.format(getTotalIncome())
     expensesAmount.textContent = formatter.format(getTotalExpenses())
-    savingsPercentage.textContent = getSavingsPercentage()
+    savingsPercentage.textContent = getSavingsPercentage() + '%'
 }
 
 updateDashboard()
