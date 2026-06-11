@@ -2,6 +2,7 @@ const balanceAmount = document.querySelector('#balance-amount')
 const incomeAmount = document.querySelector('#income-amount')
 const expensesAmount = document.querySelector('#expenses-amount')
 const savingsPercentage = document.querySelector('#savings-percentage')
+const transactionsList = document.querySelector('#transactions-list')
 
 const formatter = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
@@ -77,4 +78,35 @@ function updateDashboard() {
     savingsPercentage.textContent = getSavingsPercentage() + '%'
 }
 
+function renderTransactions() {
+    const transactions = getTransactions()
+    transactionsList.innerHTML = ''
+
+    transactions.forEach(transaction => {
+        const item = document.createElement('li')
+
+        item.innerHTML = `
+        <div class="transaction-description">
+            <h3>${transaction.description}</h3>
+        </div>
+        <div class="transaction-info">
+            <p class="transaction-category">${transaction.category} 
+            <span class="transaction-date">${transaction.date}</span>
+            </p>
+        </div>
+        <div class="transaction-value">
+            <p class="transaction-amount ${transaction.type === 'income' ? 'amount-income' : 'amount-expense'}">
+            ${formatter.format(transaction.amount)}
+            </p>
+        </div>
+        <div class="remove-btn">
+            <button class="btn-delete" data-id="${transaction.id}">✕</button>
+        </div>
+        `
+    
+        transactionsList.appendChild(item)
+    })
+}
+
 updateDashboard()
+renderTransactions()
