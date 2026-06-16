@@ -12,6 +12,7 @@ const amountInput = document.querySelector('#amount')
 const categoryInput = document.querySelector('#category')
 const dateInput = document.querySelector('#date')
 const typeButtons = document.querySelectorAll('.type-btn')
+let selectedType = null
 
 
 const formatter = new Intl.NumberFormat('pt-BR', {
@@ -130,7 +131,8 @@ newTransaction.addEventListener('click', () => {
     modalContainer.classList.remove('hidden')
 })
 
-closeModal.addEventListener('click', () => {
+closeModal.addEventListener('click', (event) => {
+    event.stopPropagation()
     modalContainer.classList.add('hidden')
 })
 
@@ -141,6 +143,10 @@ form.addEventListener('submit', (event) => {
     const category = categoryInput.value.trim()
     const date = dateInput.value.trim()
     addTransaction(description, amount, selectedType, category, date)
+
+    modalContainer.classList.add('hidden')
+    updateDashboard()
+    renderTransactions()
 })
 
 typeButtons.forEach(button => {
