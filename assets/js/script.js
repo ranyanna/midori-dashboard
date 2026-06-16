@@ -6,6 +6,13 @@ const transactionsList = document.querySelector('#transactions-list')
 const modalContainer = document.querySelector('.modal-container')
 const newTransaction = document.querySelector('#new-transaction')
 const closeModal = document.querySelector('#close-modal')
+const form = document.querySelector('form')
+const descriptionInput = document.querySelector('#description')
+const amountInput = document.querySelector('#amount')
+const categoryInput = document.querySelector('#category')
+const dateInput = document.querySelector('#date')
+const typeButtons = document.querySelectorAll('.type-btn')
+
 
 const formatter = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
@@ -125,6 +132,21 @@ newTransaction.addEventListener('click', () => {
 
 closeModal.addEventListener('click', () => {
     modalContainer.classList.add('hidden')
+})
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault()
+    const description = descriptionInput.value.trim()
+    const amount = parseFloat(amountInput.value)
+    const category = categoryInput.value.trim()
+    const date = dateInput.value.trim()
+    addTransaction(description, amount, selectedType, category, date)
+})
+
+typeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        selectedType = button.dataset.type
+    })
 })
 
 updateDashboard()
