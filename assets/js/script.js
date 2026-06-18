@@ -13,6 +13,7 @@ const categoryInput = document.querySelector('#category')
 const dateInput = document.querySelector('#date')
 const typeButtons = document.querySelectorAll('.type-btn')
 let selectedType = null
+const ctx = document.querySelector('#balance-chart')
 
 
 const formatter = new Intl.NumberFormat('pt-BR', {
@@ -157,6 +158,17 @@ typeButtons.forEach(button => {
 
         button.classList.add('active')
     })
+})
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Entradas', 'Saídas', 'Saldo'],
+        datasets: [{
+            data: [getTotalIncome(), getTotalExpenses(), getBalance()],
+            backgroundColor: ['#22c55e', '#ef4444', '#fafafa']
+        }]
+    }
 })
 
 updateDashboard()

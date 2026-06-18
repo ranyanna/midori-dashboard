@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div class="app">
@@ -39,6 +40,7 @@
           <p>MIDORI v1.0 · jun 2026</p>
         </div>
       </aside>
+
       <main class="dashboard">
         <section class="balance">
           <p class="current-balance">Saldo Atual</p>
@@ -46,6 +48,7 @@
             <span id="balance-amount">0,00</span>
           </h2>
           <p class="updated-balance">Atualizado agora</p>
+          <canvas id="balance-chart"></canvas>
         </section>
         <section class="categories">
           <p class="categories-label">Categorias</p>
