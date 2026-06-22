@@ -165,9 +165,17 @@ new Chart(ctx, {
     data: {
         labels: ['Entradas', 'Saídas', 'Saldo'],
         datasets: [{
+            label: '',
             data: [getTotalIncome(), getTotalExpenses(), getBalance()],
-            backgroundColor: ['#22c55e', '#ef4444', '#fafafa']
+            backgroundColor: ['#2D5A2D', '#ef4444', '#22c55e']
         }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
     }
 })
 
