@@ -12,8 +12,14 @@ const amountInput = document.querySelector('#amount')
 const categoryInput = document.querySelector('#category')
 const dateInput = document.querySelector('#date')
 const typeButtons = document.querySelectorAll('.type-btn')
-let selectedType = null
+const updatedExpenses = document.querySelector('#updated-expenses')
 const ctx = document.querySelector('#balance-chart')
+
+let selectedType = null
+const formatter = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+})
 const chart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -31,13 +37,6 @@ const chart = new Chart(ctx, {
             }
         }
     }
-})
-const updatedExpenses = document.querySelector('#updated-expenses')
-
-
-const formatter = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
 })
 
 function getTransactions() {
