@@ -14,6 +14,14 @@ const dateInput = document.querySelector('#date')
 const typeButtons = document.querySelectorAll('.type-btn')
 const updatedExpenses = document.querySelector('#updated-expenses')
 const categoriesChart = document.querySelector('#categories-chart')
+const categoryLabels = {
+    food: 'Alimentação',
+    transport: 'Transporte',
+    leisure: 'Lazer',
+    health: 'Saúde',
+    education: 'Educação',
+    other: 'Outros'
+}
 
 let selectedType = null
 const formatter = new Intl.NumberFormat('pt-BR', {
@@ -137,7 +145,8 @@ function updateDashboard() {
     chart.data.datasets[0].data = [updatedCategories.food, updatedCategories.transport, updatedCategories.leisure, updatedCategories.health, updatedCategories.education,updatedCategories.other]
     chart.update()
 
-    updatedExpenses.textContent = getExpensesCount() + " transações"
+    const count = getExpensesCount()
+    updatedExpenses.textContent = count + (count === 1 ? " transação" : " transações")
 }
 
 function renderTransactions() {
@@ -152,7 +161,7 @@ function renderTransactions() {
             <h3>${transaction.description}</h3>
         </div>
         <div class="transaction-info">
-            <p class="transaction-category">${transaction.category} 
+            <p class="transaction-category">${categoryLabels[transaction.category]} 
             <span class="transaction-date">${transaction.date}</span>
             </p>
         </div>
