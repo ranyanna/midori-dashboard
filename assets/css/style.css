@@ -205,6 +205,32 @@ input {
     color: var(--color-accent);
 }
 
+.categories-label {
+    font-size: 15px;
+    padding-bottom: 10px;
+}
+
+#categories-list li {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+}
+
+.categories-description span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.categories-description {
+    font-size: 12px;
+}
+
+.categories-value {
+    font-size: 15px;
+}
+
 #date, #save-transaction {
     color: var(--color-accent);
 }

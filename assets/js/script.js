@@ -23,6 +23,14 @@ const categoryLabels = {
     education: 'Educação',
     other: 'Outros'
 }
+const categoryColors = {
+    food: '#2D5A2D',
+    transport: '#22C55E',
+    leisure: '#EF4444',
+    health: '#3B82F6',
+    education: '#FF1EA8',
+    other: '#FFBF00'
+}
 
 let selectedType = null
 const formatter = new Intl.NumberFormat('pt-BR', {
@@ -156,7 +164,7 @@ function renderCategories() {
         const item = document.createElement('li')
         item.innerHTML = `
         <div class="categories-description">
-        <h3>${categoryLabels[category]}</h3>
+        <h3><span style="background-color: ${categoryColors[category]}"></span> ${categoryLabels[category]}</h3>
         </div>
         <div class="categories-value">
         <p class="categories-amount">${formatter.format(categories[category])}</p>
