@@ -15,6 +15,7 @@ const typeButtons = document.querySelectorAll('.type-btn')
 const updatedExpenses = document.querySelector('#updated-expenses')
 const categoriesChart = document.querySelector('#categories-chart')
 const categoriesList = document.querySelector('#categories-list')
+const categoriesEmpty = document.querySelector('.categories-empty')
 const categoryLabels = {
     food: 'Alimentação',
     transport: 'Transporte',
@@ -147,6 +148,13 @@ function updateDashboard() {
     incomeAmount.textContent = formatter.format(getTotalIncome())
     expensesAmount.textContent = formatter.format(getTotalExpenses())
     savingsPercentage.textContent = getSavingsPercentage() + '%'
+    if (getExpensesCount() === 0) {
+        categoriesEmpty.classList.remove('hidden')
+        categoriesChart.classList.add('hidden')
+    } else {
+        categoriesEmpty.classList.add('hidden')
+        categoriesChart.classList.remove('hidden')
+    }
     renderCategories()
 
     const updatedCategories = getExpensesByCategories()
@@ -165,7 +173,7 @@ function renderCategories() {
         const item = document.createElement('li')
         item.innerHTML = `
         <div class="categories-description">
-        <h3><span style="background-color: ${categoryColors[category]}"></span> ${categoryLabels[category]}</h3>
+        <p><span style="background-color: ${categoryColors[category]}"></span> ${categoryLabels[category]}</p>
         </div>
         <div class="categories-value">
         <p class="categories-amount">${formatter.format(categories[category])}</p>
