@@ -337,3 +337,22 @@ input {
     padding-top: 15px;
 }
 
+.transactions-header {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+}
+
+#new-transaction {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 11px;
+    padding: 9px 15px;
+    border-radius: 10px;
+    border: 1px solid var(--color-accent);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
