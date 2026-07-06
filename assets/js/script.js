@@ -208,7 +208,7 @@ function renderTransactions() {
             </p>
         </div>
         <div class="remove-btn">
-            <button class="btn-delete" data-id="${transaction.id}">✕</button>
+            <button class="btn-delete" data-id="${transaction.id}">X</button>
         </div>
         `
 
