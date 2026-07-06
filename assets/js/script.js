@@ -69,7 +69,7 @@ function saveTransactions(transactions) {
 function addTransaction(description, amount, type, category, date) {
     const transactions = getTransactions()
 
-    transactions.push({
+    transactions.unshift({
         id: Date.now(),
         description,
         amount,
