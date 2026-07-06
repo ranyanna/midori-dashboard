@@ -270,4 +270,3 @@ typeButtons.forEach(button => {
 
 updateDashboard()
 renderTransactions()
-renderCategories()
