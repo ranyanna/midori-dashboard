@@ -262,6 +262,8 @@ form.addEventListener('submit', (event) => {
         return
     }    
     addTransaction(description, amount, selectedType, category, date)
+    selectedType = null
+    typeButtons.forEach(btn => btn.classList.remove('active'))
 
     modalContainer.classList.add('hidden')
     updateDashboard()
