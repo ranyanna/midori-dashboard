@@ -17,6 +17,7 @@ const categoriesChart = document.querySelector('#categories-chart')
 const categoriesList = document.querySelector('#categories-list')
 const categoriesEmpty = document.querySelector('.categories-empty')
 const footerText = document.querySelector('#footer-text')
+const updatedBalance = document.querySelector('.updated-balance')
 const categoryLabels = {
     food: 'Alimentação',
     transport: 'Transporte',
@@ -174,6 +175,9 @@ function updateDashboard() {
 
     const count = getExpensesCount()
     updatedExpenses.textContent = count + (count === 1 ? " transação" : " transações")
+    
+    const now = new Date()
+    updatedBalance.textContent = 'Atualizado às ' + now.toLocaleString('pt-BR', {hour: '2-digit', minute: '2-digit'})
 }
 
 function renderCategories() {
