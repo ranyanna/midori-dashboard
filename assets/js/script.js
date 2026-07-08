@@ -257,6 +257,10 @@ form.addEventListener('submit', (event) => {
     const amount = parseFloat(amountInput.value)
     const category = categoryInput.value.trim()
     const date = dateInput.value.trim()
+    if (selectedType === null) {
+        alert('Selecione um tipo!')
+        return
+    }    
     addTransaction(description, amount, selectedType, category, date)
 
     modalContainer.classList.add('hidden')

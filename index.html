@@ -96,9 +96,9 @@
           <button type="button" id="close-modal">X</button>
         </div>
         <label for="description">Descrição</label>
-        <input type="text" id="description" placeholder="Ex: Mercado, salário..." />
+        <input type="text" id="description" placeholder="Ex: Mercado, salário..." required />
         <label for="amount">Valor</label>
-        <input type="number" name="amount" id="amount" placeholder="0,00" />
+        <input type="number" name="amount" id="amount" placeholder="0,00" required/>
         <p class="type-label">Tipo</p>
         <div class="type-buttons">
           <button type="button" class="type-btn" data-type="income">Entrada</button>
@@ -114,7 +114,7 @@
           <option value="other">Outros</option>
         </select>
         <label for="date">Data</label>
-        <input type="date" name="date" id="date" />
+        <input type="date" name="date" id="date" required/>
         <input type="submit" value="Salvar Transação" id="save-transaction" />
       </form>
     </div>
