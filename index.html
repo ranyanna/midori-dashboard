@@ -24,15 +24,9 @@
           <div class="nav-group">
             <span class="nav-group-label">Principal</span>
             <ul>
-              <li><a href="#" class="nav-link">Dashboard</a></li>
-              <li><a href="#" class="nav-link">Transações</a></li>
-            </ul>
-          </div>
-          <div class="nav-group">
-            <span class="nav-group-label">Análise</span>
-            <ul>
-              <li><a href="#" class="nav-link">Categorias</a></li>
-              <li><a href="#" class="nav-link">Relatório</a></li>
+              <li><a href="#balance" class="nav-link">Dashboard</a></li>
+              <li><a href="#transactions" class="nav-link">Transações</a></li>
+              <li><a href="#categories" class="nav-link">Categorias</a></li>
             </ul>
           </div>
         </nav>
@@ -42,14 +36,14 @@
       </aside>
 
       <main class="dashboard">
-        <section class="balance">
+        <section class="balance" id="balance">
           <p class="section-label">Saldo Atual</p>
           <h2 class="balance-value">
             <span id="balance-amount">0,00</span>
           </h2>
           <p class="updated-balance">Atualizado agora</p>
         </section>
-        <section class="categories">
+        <section class="categories" id="categories">
           <p class="section-label">Categorias</p>
           <ul id="categories-list"></ul>
           <canvas id="categories-chart"></canvas>
@@ -82,7 +76,7 @@
             <p class="updated-savings">da renda guardada</p>
           </div>
         </section>
-        <section class="transactions">
+        <section class="transactions" id="transactions">
           <div class="transactions-header">
           <p class="section-label">Transações recentes</p>
           <button id="new-transaction">+ Nova Transação</button>
