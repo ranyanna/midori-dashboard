@@ -279,14 +279,18 @@ input {
 .dashboard {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 .balance {
     grid-column: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+}
+
+#balance-chart {
+    max-height: 200px;
+    padding-top: 20px;
 }
 
 .categories {
@@ -323,10 +327,8 @@ input {
     color: var(--color-negative);
 }
 
-
-
 .transactions {
-    padding: 24px;
+    margin: 24px;
     grid-column: 1 / 3;
 }
 
@@ -347,7 +349,7 @@ input {
 
 #balance-amount {
     display: block;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: lighter;
 }
 

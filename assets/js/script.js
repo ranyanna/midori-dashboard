@@ -18,6 +18,7 @@ const categoriesList = document.querySelector('#categories-list')
 const categoriesEmpty = document.querySelector('.categories-empty')
 const footerText = document.querySelector('#footer-text')
 const updatedBalance = document.querySelector('.updated-balance')
+const balanceChart = document.querySelector('#balance-chart')
 const categoryLabels = {
     food: 'Alimentação',
     transport: 'Transporte',
@@ -58,6 +59,25 @@ const chart = new Chart(categoriesChart, {
             data: [categories.food, categories.transport, categories.leisure, categories.health, categories.education, categories.other],
             borderWidth: 0,
             backgroundColor: ['#2D5A2D', '#22C55E', '#EF4444', '#3B82F6', '#FF1EA8', '#FFBF00']
+        }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                display: false,
+            }
+        }
+    }
+})
+
+const balance = getExpensesByMonth()
+const barChart = new Chart(balanceChart, {
+    type: 'bar',
+    data: {
+        labels: balance.labels,
+        datasets: [{
+            data: balance.data,
+            backgroundColor: '#2D5A2D'
         }]
     },
     options: {
@@ -173,6 +193,11 @@ function updateDashboard() {
     chart.data.datasets[0].data = [updatedCategories.food, updatedCategories.transport, updatedCategories.leisure, updatedCategories.health, updatedCategories.education, updatedCategories.other]
     chart.update()
 
+    const monthlyData = getExpensesByMonth()
+    barChart.data.labels = monthlyData.labels
+    barChart.data.datasets[0].data = monthlyData.data
+    barChart.update()
+
     const count = getExpensesCount()
     updatedExpenses.textContent = count + (count === 1 ? " transação" : " transações")
     
@@ -279,6 +304,32 @@ typeButtons.forEach(button => {
         button.classList.add('active')
     })
 })
+
+function getExpensesByMonth() {
+    const labels = []
+    const data = []
+    const transactions = getTransactions()
+
+    for (let i = 5; i >= 0; i--) {
+        const date = new Date()
+        date.setMonth(date.getMonth() - i)
+
+        const monthName = date.toLocaleString('pt-BR', {month: 'short'})
+        labels.push(monthName)
+
+        const monthExpenses = transactions.filter(transaction => {
+            const transactionDate = new Date(transaction.date + 'T00:00:00')
+            return transaction.type === 'expense' &&
+            transactionDate.getMonth() === date.getMonth() &&
+            transactionDate.getFullYear() === date.getFullYear()
+        })
+
+        const total = monthExpenses.reduce((acc, curr) => acc + curr.amount, 0)
+        data.push(total)
+    }
+
+    return {labels, data}
+}
 
 updateDashboard()
 renderTransactions()
