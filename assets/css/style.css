@@ -451,3 +451,78 @@ input {
     border-radius: 10px;
     margin: 10px; 
 }
+
+@media (max-width: 768px) {
+    .app {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .sidebar-nav {
+        display: none;
+    }
+
+    .footer-sidebar {
+        display: none;
+    }
+
+    .logo-sidebar {
+        border-bottom: none;
+        padding: 10px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .balance {
+        grid-column: 1;
+    }
+
+    .categories {
+        grid-column: 1;
+        grid-row: auto;
+        border-left: none;
+        border-top: 1px solid var(--color-bg-card);
+    }
+
+    .summary {
+        grid-column: 1;
+        grid-template-columns: 1fr;
+    }
+
+    .transactions {
+        grid-column: 1;
+        margin: 10px;
+    }
+
+    .income-value,
+    .expenses-value,
+    .savings-value {
+        font-size: 24px;
+    }
+
+    #balance-amount {
+        font-size: 24px;
+    }
+
+    #categories-chart {
+    max-height: 250px;
+    }
+
+    .summary-income,
+    .summary-expenses,
+    .summary-savings {
+        border-bottom: 1px solid var(--color-bg-card);
+        padding: 16px 0;
+    }
+}
