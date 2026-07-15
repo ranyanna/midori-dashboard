@@ -20,7 +20,9 @@ HTML5 · CSS3 · JavaScript · [Chart.js](https://www.chartjs.org/)
 
 Abra o projeto com a extensão **Live Server** do VS Code (não abra o `index.html` direto pelo navegador).
 
+```
 git clone https://github.com/ranyanna/orbit-dashboard.git
+```
 
 ## Autora
 
